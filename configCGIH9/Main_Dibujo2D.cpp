@@ -65,9 +65,8 @@ int main() {
 		-0.5f,  0.5f, 0.0f,   1.0f,1.0f,0.0f, // top left 
 	};
 	unsigned int indices[] = {  // note that we start from 0!
-		3,2,1,// second Triangle
+		0,3,2,// second Triangle
 		0,1,3,
-		0,3,2,
 	};
 
 
@@ -138,7 +137,7 @@ int main() {
 		//ya que cada 3 vertices son un triangulo al poner 6 vertices obtendremos un cuadrado.
 		//glDrawElements(GL_TRIANGLES, 6,GL_UNSIGNED_INT,0);
         //Dibujar el triangulo en otra posicion
-		glDrawArrays(GL_TRIANGLES,2,3);
+		glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
         glBindVertexArray(0);
     
 		// Swap the screen buffers
