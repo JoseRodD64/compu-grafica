@@ -218,9 +218,9 @@ int main() {
 		glm::mat4 model=glm::mat4(1);
 		glm::mat4 view=glm::mat4(1);
 	
-	   view = glm::translate(view, glm::vec3(0.0f,0.0f,-15.0f));
-		model = glm::rotate( model, 0.5f, glm::vec3( 1.0f, 5.0f, 6.0f ) ); // use to compare orthographic and perspective projection
-		//model = glm::scale(model, glm::vec3(500.0f, 500.0f, 500.0f));
+	   view = glm::translate(view, glm::vec3(0.0f,0.0f,-13.0f));
+		model = glm::rotate( model, 0.5f, glm::vec3( 0.0f, 10.0f, 0.0f ) ); // use to compare orthographic and perspective projection
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
 		//view = glm::translate( view, glm::vec3( screenWidth / 2, screenHeight / 2,-700.0f ) ); // use with orthographic projection
 		
 		GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
@@ -237,23 +237,23 @@ int main() {
 		// --- CUBO 2: IZQUIERDA (Rotando en Z) ---
 		model = glm::mat4(1.0f); // Limpiamos la matriz para empezar de cero con este cubo
 		model = glm::translate(model, glm::vec3(-6.0f, 0.0f, 0.0f)); // Lo movemos a la Izquierda
-		// Rotación en Z (usamos el tiempo para que gire, eje 0,0,1 es Z)
+		// Rotación en Z 
 		model = glm::rotate(model, 0.5f, glm::vec3(10.0f, 0.0f, -12.0f));
-		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // Enviamos al shader
 		glDrawArrays(GL_TRIANGLES, 0, 36); // Dibujamos
 
 
-		// --- CUBO 3: DERECHA (Rotando en Z al revés) ---
+		//// --- CUBO 3: DERECHA (Rotando en Z al revés) ---
 		model = glm::mat4(1.0f); // Limpiamos de nuevo
 		model = glm::translate(model, glm::vec3(6.0f, 0.0f, 0.0f)); // Lo movemos a la Derecha
-		// Rotación en Z negativa (para que gire al otro lado)
+		// Rotación en Z negativa 
 		model = glm::rotate(model, 0.5f, glm::vec3(-10.0f, 0.0f, 12.0f));
 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model)); // Enviamos al shader
 		glDrawArrays(GL_TRIANGLES, 0, 36); // Dibujamos
-		model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		glBindVertexArray(0);
 
 
